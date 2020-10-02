@@ -24,7 +24,13 @@
 }
 
 .bd-example-cssgrid {
-  [class^="g-col"] {
+  text-align: center;
+
+  .grid + .grid {
+    margin-top: 1rem;
+  }
+
+  .grid > * {
     padding-top: .75rem;
     padding-bottom: .75rem;
     background-color: rgba(255, 0, 255, .1);
