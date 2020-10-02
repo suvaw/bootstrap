@@ -131,7 +131,13 @@ This behavior can be mixed with grid column classes.
 
 ## Customizing
 
-Customize the number of columns and the width of the gutters by changing two CSS variables: `--columns` and `--gutter`. Because these two CSS variables are local to the `.grid` class, you can override them whenever you like, as many times as you like.
+Customize the number of columns, the number of rows, and the width of the gutters with local CSS variables.
+
+- `--rows` is the number of rows in your grid template (default: `1`)
+- `--columns` is the number of columns in your grid template (default: `12`)
+- `--gutter` is the width of the gap between columns (default: `1.5rem`)
+
+Because these CSS variables are local to the `.grid` class, you can override them whenever you like, as many times as you like, even across media queries.
 
 {{< example class="bd-example-cssgrid" >}}
 <div class="grid" style="--columns: 3;">
@@ -148,6 +154,16 @@ Customize the number of columns and the width of the gutters by changing two CSS
 <div class="grid" style="--columns: 10; --gutter: 1rem;">
   <div class="g-col-6">.g-col-6</div>
   <div class="g-col-4">.g-col-4</div>
+</div>
+{{< /example >}}
+
+Adding more rows and changing the placement of columns:
+
+{{< example class="bd-example-cssgrid" >}}
+<div class="grid" style="--rows: 3; --columns: 3;">
+  <div>Auto-column</div>
+  <div class="g-start-2" style="grid-row: 2">Auto-column</div>
+  <div class="g-start-3" style="grid-row: 3">Auto-column</div>
 </div>
 {{< /example >}}
 
