@@ -2,6 +2,7 @@
 layout: docs
 title: CSS Grid
 description: Learn how to enable, use, and customize our alternate layout system built on CSS Grid with examples and code snippets.
+status: experimental
 group: layout
 toc: true
 ---
@@ -34,11 +35,15 @@ Compared to the default grid system:
 - There's no `padding` on columns as gutters function more like margins.
 - Unlike `.row`s, `.grid`s have no negative margins.
 - Margin utilities cannot be used to change the grid gutters. See the customizing section.
-- Grid gutters are applied horizontally and vertically.
+- Grid gutters are applied horizontally and vertically by default. See the customizing section.
 - Inline and custom styles should be viewed as replacements for modifier classes (e.g., `style="--columns: 3;"` vs `class="row-cols-3"`).
 
 ## Examples
 
+### Three columns
+
+Three equal width columns across all viewports and devices can be created by using the `.g-col-4` classes.
+
 {{< example class="bd-example-cssgrid" >}}
 <div class="grid">
   <div class="g-col-4">.g-col-4</div>
@@ -47,48 +52,36 @@ Compared to the default grid system:
 </div>
 {{< /example >}}
 
-{{< example class="bd-example-cssgrid" >}}
-<div class="grid">
-  <div class="g-col-1">.g-col-1</div>
-  <div class="g-col-1">.g-col-1</div>
-  <div class="g-col-1">.g-col-1</div>
-  <div class="g-col-1">.g-col-1</div>
-  <div class="g-col-1">.g-col-1</div>
-  <div class="g-col-1">.g-col-1</div>
-  <div class="g-col-1">.g-col-1</div>
-  <div class="g-col-1">.g-col-1</div>
-  <div class="g-col-1">.g-col-1</div>
-  <div class="g-col-1">.g-col-1</div>
-  <div class="g-col-1">.g-col-1</div>
-  <div class="g-col-1">.g-col-1</div>
-</div>
-{{< /example >}}
+### No column classes
+
+When there are no classes on the grid items (the immediate children of a `.grid`), each one defaults to one column's width.
 
 {{< example class="bd-example-cssgrid" >}}
 <div class="grid">
-  <div class="g-col-2">.g-col-2</div>
-  <div class="g-col-2">.g-col-2</div>
-  <div class="g-col-2">.g-col-2</div>
-  <div class="g-col-2">.g-col-2</div>
-  <div class="g-col-2">.g-col-2</div>
-  <div class="g-col-2">.g-col-2</div>
+  <div>...</div>
+  <div>...</div>
+  <div>...</div>
+  <div>...</div>
+  <div>...</div>
+  <div>...</div>
+  <div>...</div>
+  <div>...</div>
+  <div>...</div>
+  <div>...</div>
+  <div>...</div>
+  <div>...</div>
 </div>
 {{< /example >}}
 
-{{< example class="bd-example-cssgrid" >}}
-<div class="grid">
-  <div class="g-col-3">.g-col-3</div>
-  <div class="g-col-3">.g-col-3</div>
-  <div class="g-col-3">.g-col-3</div>
-  <div class="g-col-3">.g-col-3</div>
-</div>
-{{< /example >}}
+### Responsive
+
+Use responsive classes to adjust your layout across viewports. Here we start with two columns on the narrowest viewports, and then grow to three columns on medium viewports and above.
 
 {{< example class="bd-example-cssgrid" >}}
 <div class="grid">
-  <div class="g-col-4">.g-col-4</div>
-  <div class="g-col-4">.g-col-4</div>
-  <div class="g-col-4">.g-col-4</div>
+  <div class="g-col-6 g-col-md-4">.g-col-6 .g-col-md-4</div>
+  <div class="g-col-6 g-col-md-4">.g-col-6 .g-col-md-4</div>
+  <div class="g-col-6 g-col-md-4">.g-col-6 .g-col-md-4</div>
 </div>
 {{< /example >}}
 
@@ -100,6 +93,8 @@ Compared to the default grid system:
 {{< /example >}}
 
 ## Wrapping
+
+Grid items automatically wrap to the next line when there's no more room horizontally. Note that the `grid-gap` applies to horizontal and vertical gutters between grid items.
 
 {{< example class="bd-example-cssgrid" >}}
 <div class="grid">
