@@ -41,19 +41,14 @@ $enable-cssgrid: true !default;
   .grid {
     --rows: 1;
     --columns: #{$grid-columns};
-    --gutter: #{$grid-gutter-width};
+    --gap: #{$grid-gutter-width};
 
     display: grid;
     grid-template-rows: repeat(var(--rows), 1fr);
     grid-template-columns: repeat(var(--columns), 1fr);
-    gap: var(--gutter);
+    gap: var(--gap);
 
     @include make-cssgrid();
-
-    [col] {
-      --size: attr(col %);
-      grid-column: auto / span var(--size);
-    }
   }
 }
 

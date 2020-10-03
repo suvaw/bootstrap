@@ -7,7 +7,6 @@ toc: true
 ---
 
 {{< callout info >}}
-- Change `--gutter` to `--gap` to use same verbiage?
 - How to generate or create dynamic col classes above default of 12? Sass only?
 - Subgrid?
 - Shorthand for 2x2, 3x3, etc grids? .grid-2x12 (2 rows 12 cols)?
@@ -25,7 +24,7 @@ With Bootstrap 5, we've added the option to enable a separate grid system that's
 - Disable the default grid system by setting `$enable-grid-classes: false`.
 - Enable the CSS Grid by setting `$enable-cssgrid: true` and recompiling your Sass.
 - Replace instances of `.row` with `.grid`. `.grid`s set `display: grid` and create a `grid-template` that you build on with your HTML.
-- The number of columns and the width of the gutters are set via CSS variables on the `.grid`, which means you can customize those values on the fly: `--columns` and `--gutter`.
+- The number of columns and the width of the gutters are set via CSS variables on the `.grid`, which means you can customize those values on the fly: `--columns` and `--gap`.
 
 ## Key differences
 
@@ -194,7 +193,7 @@ Customize the number of columns, the number of rows, and the width of the gutter
 | --- | --- | --- |
 | `--rows` | `1` | The number of rows in your grid template |
 | `--columns` | `12` | The number of columns in your grid template |
-| `--gutter` | `1.5rem` | The size of the gap between columns (vertical and horizontal) |
+| `--gap` | `1.5rem` | The size of the gap between columns (vertical and horizontal) |
 {{< /bs-table >}}
 
 Because these CSS variables are local to the `.grid` class, you can override them whenever you like, as many times as you like, even across media queries.
@@ -214,14 +213,14 @@ Immediate children elements of `.grid` are grid items, so they'll be sized witho
 ### Columns and gutters
 
 {{< example class="bd-example-cssgrid" >}}
-<div class="grid" style="--columns: 4; --gutter: 5rem;">
+<div class="grid" style="--columns: 4; --gap: 5rem;">
   <div class="g-col-2">.g-col-2</div>
   <div class="g-col-2">.g-col-2</div>
 </div>
 {{< /example >}}
 
 {{< example class="bd-example-cssgrid" >}}
-<div class="grid" style="--columns: 10; --gutter: 1rem;">
+<div class="grid" style="--columns: 10; --gap: 1rem;">
   <div class="g-col-6">.g-col-6</div>
   <div class="g-col-4">.g-col-4</div>
 </div>
@@ -275,7 +274,7 @@ One limitation of the CSS Grid is that our default classes are still generated b
 For example, you can customize the column count and gutter, and then size your "columns" with inline styles.
 
 {{< example class="bd-example-cssgrid" >}}
-<div class="grid" style="--columns: 18; --gutter: .5rem;">
+<div class="grid" style="--columns: 18; --gap: .5rem;">
   <div style="grid-column: span 14;">14 columns</div>
   <div class="g-col-4">.g-col-4</div>
 </div>
